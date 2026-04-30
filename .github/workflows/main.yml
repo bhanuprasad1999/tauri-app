@@ -1,0 +1,25 @@
+name: Build APK
+on: push
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+      - name: Install Android NDK
+        run: echo "y" | sudo sdkmanager "ndk;25.2.9519653"
+      - name: Build APK
+        run: |
+          npm install
+          npx tauri android build --debug
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: src-tauri/gen/android/app/build/outputs/apk/debug/*.apk
