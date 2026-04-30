@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "identifier": "com.demo.app",
   "build": {
-    "frontendDist": "../"
+    "beforeBuildCommand": "",
+    "frontendDist": "../dist"
   },
   "app": {
     "windows": [{ "title": "Tauri Demo", "width": 800, "height": 600 }],
