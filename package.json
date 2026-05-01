@@ -2,7 +2,7 @@
   "name": "tauri-demo-app",
   "version": "0.1.0",
   "scripts": {
-    "build": "mkdir -p dist && cp dist/index.html dist/", 
+    "build": "mkdir -p dist && cp ./dist/index.html dist/", 
     "tauri": "tauri"
   },
   "dependencies": {
