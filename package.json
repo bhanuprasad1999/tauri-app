@@ -2,7 +2,7 @@
   "name": "tauri-demo-app",
   "version": "0.1.0",
   "scripts": {
-    "build": "chmod -R 755 dist && ./dist/index.html", 
+    "build": "./dist/index.html", 
     "tauri": "tauri"
   },
   "dependencies": {
