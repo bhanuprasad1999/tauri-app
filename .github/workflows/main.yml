@@ -20,11 +20,10 @@ jobs:
       - name: Build APK
         run: |
           npm install
-          npm run build
           npx tauri android init
           PROGUARD_PATH="src-tauri/gen/android/app/proguard-rules.pro"
           mkdir -p $(dirname "$PROGUARD_PATH")
-          echo "-keep class app.tauri.** { *; }" >> $PROGUARD_PATH
+          echo "-keep class app.tauri.** { *; }" > $PROGUARD_PATH
           echo "-keep class com.demo.app.** { *; }" >> $PROGUARD_PATH
           npx tauri android build
       - name: Upload APK
